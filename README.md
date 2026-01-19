@@ -216,13 +216,13 @@ make kind-delete
 ### Building Docker Image
 ```bash
 # Build image
-make docker-build IMG=yourusername/postgres-operator:v1.0.0
+make docker-build IMG=nowll/postgres-operator:v1.0.0
 
 # Push to registry
-make docker-push IMG=yourusername/postgres-operator:v1.0.0
+make docker-push IMG=nowll/postgres-operator:v1.0.0
 
 # Deploy to cluster
-make deploy IMG=yourusername/postgres-operator:v1.0.0
+make deploy IMG=nowll/postgres-operator:v1.0.0
 ```
 
 ## 🧪 Testing
