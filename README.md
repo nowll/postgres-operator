@@ -32,32 +32,6 @@ The PostgreSQL Operator enables you to manage PostgreSQL databases on Kubernetes
 - **Controller-runtime** for efficient Kubernetes API interaction
 - Production-ready with **health probes** and **graceful handling**
 
-## 🏗️ Architecture
-┌─────────────────────────────────────────────────────────┐
-│  PostgresInstance Custom Resource (CRD)                 │
-│  - Declarative PostgreSQL configuration                 │
-└────────────────────┬────────────────────────────────────┘
-│
-▼
-┌─────────────────────────────────────────────────────────┐
-│  PostgreSQL Operator Controller                         │
-│  - Watches PostgresInstance resources                   │
-│  - Reconciles desired state vs actual state             │
-│  - Manages child Kubernetes resources                   │
-└────────────┬───────────────┬──────────────┬─────────────┘
-│               │              │
-┌────▼───┐      ┌────▼────┐    ┌───▼────┐
-│StatefulSet│   │Services │    │Secrets │
-│  - Postgres│   │ - Headless│   │ - Passwords│
-│    Pods    │   │ - ClusterIP│  │ - Configs  │
-└────┬───┘      └─────────┘    └────────┘
-│
-┌────▼───────┐
-│ PVC        │
-│ - Data     │
-│   Storage  │
-└────────────┘
-
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -69,12 +43,12 @@ The PostgreSQL Operator enables you to manage PostgreSQL databases on Kubernetes
 
 1. **Install the CRD:**
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/yourusername/postgres-operator/main/config/crd/bases/database.example.com_postgresinstances.yaml
+kubectl apply -f https://raw.githubusercontent.com/nowll/postgres-operator/main/config/crd/bases/database.example.com_postgresinstances.yaml
 ```
 
 2. **Deploy the Operator:**
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/yourusername/postgres-operator/main/config/manager/manager.yaml
+kubectl apply -f https://raw.githubusercontent.com/nowll/postgres-operator/main/config/manager/manager.yaml
 ```
 
 3. **Create a PostgreSQL Instance:**
@@ -205,7 +179,7 @@ spec:
 ### Building from Source
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/postgres-operator.git
+git clone https://github.com/nowll/postgres-operator.git
 cd postgres-operator
 
 # Download dependencies
@@ -369,9 +343,6 @@ Contributions are welcome! Please follow these steps:
 - Ensure CI/CD passes
 - Sign commits with DCO
 
-## 📄 License
-
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
@@ -382,19 +353,13 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ## 📞 Support
 
-- **Issues:** [GitHub Issues](https://github.com/yourusername/postgres-operator/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/yourusername/postgres-operator/discussions)
-- **Documentation:** [Wiki](https://github.com/yourusername/postgres-operator/wiki)
+- **Issues:** [GitHub Issues](https://github.com/nowll/postgres-operator/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/nowll/postgres-operator/discussions)
+- **Documentation:** [Wiki](https://github.com/nowll/postgres-operator/wiki)
 
-## 📊 Project Stats
-
-![GitHub stars](https://img.shields.io/github/stars/yourusername/postgres-operator?style=social)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/postgres-operator?style=social)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/postgres-operator)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/yourusername/postgres-operator)
 
 ---
 
-**Made with ❤️ by [Your Name](https://github.com/yourusername)**
+**Made with ❤️ by [Samuel Caesar Paskalis](https://github.com/nowll)**
 
 *⭐ Star this repo if you find it useful!*
