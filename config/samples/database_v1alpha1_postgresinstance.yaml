@@ -1,0 +1,30 @@
+apiVersion: database.example.com/v1alpha1
+kind: PostgresInstance
+metadata:
+  labels:
+    app.kubernetes.io/name: postgresinstance
+    app.kubernetes.io/instance: postgresinstance-sample
+    app.kubernetes.io/part-of: postgres-operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: postgres-operator
+  name: postgresinstance-sample
+spec:
+  version: "16"
+  replicas: 1
+  storage:
+    size: 10Gi
+    storageClass: standard
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1Gi
+    limits:
+      cpu: 2000m
+      memory: 4Gi
+  databases:
+    - name: testdb
+      owner: testuser
+  users:
+    - name: testuser
+      databases:
+        - testdb

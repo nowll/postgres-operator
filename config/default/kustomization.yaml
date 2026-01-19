@@ -1,0 +1,20 @@
+# Adds namespace to all resources.
+namespace: postgres-operator-system
+
+# Value of this field is prepended to the
+# names of all resources
+namePrefix: postgres-operator-
+
+# Labels to add to all resources and selectors.
+#labels:
+#- includeSelectors: true
+#  pairs:
+#    someName: someValue
+
+resources:
+  - ../crd
+  - ../rbac
+  - ../manager
+
+patchesStrategicMerge:
+  - manager_auth_proxy_patch.yaml
